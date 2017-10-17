@@ -13,8 +13,8 @@ class EseraDualDimmer extends IPSModule {
         $this->CreateVariableProfile("ESERA.dimmer32", 2, " ", 0, 31, 1, 2, "Intensity");
 		
 		//Output for dimmer channels
-        $this->RegisterVariableInteger("Output1", "Output 1", "ESERA.dimmer32");
-		$this->RegisterVariableInteger("Output2", "Output 2", "ESERA.dimmer32");
+        $this->RegisterVariableFloat("Output1", "Output 1", "ESERA.dimmer32");
+		$this->RegisterVariableFloat("Output2", "Output 2", "ESERA.dimmer32");
 		
 		//Input for Push Button Input (manual control)
 		for($i = 1; $i <= 4; $i++){
@@ -52,17 +52,29 @@ class EseraDualDimmer extends IPSModule {
 			} 
 			//Dimmer Channel 1
 			else if ($data->DataPoint == 3) {
-			
-
-			}
+                $value = $data->Value /3.33;
+                SetValue($this->GetIDForIdent("Output1"), $value);
+            }
+      
 			//Dimmer Channel 2
 			else if ($data->DataPoint == 4) {
-				
+				$value = $data->Value *3.33;
+                SetValue($this->GetIDForIdent("Output2"), $value);
 			}
 			
 		}
 	}
 	
+	//Dimmer Output
+    public function SetDualDim(int $Value) {
+  		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID"). "," . $Value ."");
+  	}
+    
+	private function Send($Command) {
+        //Zur 1Wire Controller Instanz senden
+    	return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
+
+    }	
 	
 	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
