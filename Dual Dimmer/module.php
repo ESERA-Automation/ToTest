@@ -61,7 +61,7 @@ class EseraDualDimmer extends IPSModule {
 			}
 			
 		}
-
+	}
 	
 	
 	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
