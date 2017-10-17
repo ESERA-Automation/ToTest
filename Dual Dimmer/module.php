@@ -56,26 +56,13 @@ class EseraDualDimmer extends IPSModule {
 			}
 		}
 	}
-	public function RequestAction($Ident, $Value) {
-		switch($Ident) {
-			case "Output1":
-			case "Output2":
-			case "Output3":
-			case "Output4":
-			case "Output5":
-			case "Output6":
-			case "Output7":
-			case "Output8":
-				$this->SetDigitalOutput(SubStr($Ident, 6, 1), $Value);
-				break;
-			default:
-				throw new Exception("Invalid ident");
-		}
-	}
-	public function SetDigitalOutput(int $OutputNumber, int $Value) {
+
+	
+	
+	public function SetDualDimmer(int $OutputNumber, int $Value) {
 
 		$OutputNumber = $OutputNumber - 1;
-		$this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
+		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
 	}
 	private function Send($Command) {
 
