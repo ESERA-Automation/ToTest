@@ -1,0 +1,15 @@
+{
+	"id": "{0f05e1a8-c86e-4c07-9f68-8267b23a23de}",
+	"name": "EseraDualDimmer",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases": 
+	[
+		"Dual Dimmer",
+		"11225 Dual Dimmer Phasenanschnitt"	
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
+}
