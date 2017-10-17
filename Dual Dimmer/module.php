@@ -76,15 +76,7 @@ class EseraDualDimmer extends IPSModule {
 
     }	
 	
-	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
-		    if (!IPS_VariableProfileExists($ProfileName)) {
-			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
-			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
-			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
-			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-		    }
-	  }
+
 
 	
 	
@@ -93,11 +85,23 @@ class EseraDualDimmer extends IPSModule {
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
 	}
+	/*
 	private function Send($Command) {
-
 		//Zur 1Wire Coontroller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 
 	}
+	*/
+	
+	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
+		    if (!IPS_VariableProfileExists($ProfileName)) {
+			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
+			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
+			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
+			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
+			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+		    }
+	}
+	  
 }
 ?>
