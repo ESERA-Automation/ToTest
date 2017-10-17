@@ -13,8 +13,8 @@ class EseraDigitalOutIn8Channel extends IPSModule {
         $this->CreateVariableProfile("ESERA.dimmer32", 2, " V", 0, 31, 1, 2, "");
         
 		//Output for dimmer channels
-        $this->RegisterVariableFloat("channel1", "Channel 1", "ESERA.dimmer32");
-		$this->RegisterVariableFloat("channel1", "Channel 1", "ESERA.dimmer32");
+        $this->RegisterVariableFloat("Output1", "Output 1", "ESERA.dimmer32");
+		$this->RegisterVariableFloat("Output2", "Output 2", "ESERA.dimmer32");
 		
 		//Input for Push Button Input (manual control)
 		for($i = 1; $i <= 4; $i++){
@@ -45,12 +45,12 @@ class EseraDigitalOutIn8Channel extends IPSModule {
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 8; $i++){
+				for ($i = 1; $i <= 4; $i++){
 					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
 				}
 			} else if ($data->DataPoint == 3) {
 				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 8; $i++){
+				for ($i = 1; $i <= 2; $i++){
 					SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x1);
 				}
 			}
