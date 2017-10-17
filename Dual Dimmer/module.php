@@ -10,8 +10,8 @@ class EseraDualDimmer extends IPSModule {
 		$this->RegisterPropertyInteger("OWDID", 1);
 
 		//Dimmer profile 0-31
-        $this->CreateVariableProfile("ESERA.dimmer32", 2, " V", 0, 31, 1, 2, "");
-        
+        $this->CreateVariableProfile("ESERA.dimmer32", 2, " ", 0, 31, 1, 2, "Intensity");
+		
 		//Output for dimmer channels
         $this->RegisterVariableFloat("Output1", "Output 1", "ESERA.dimmer32");
 		$this->RegisterVariableFloat("Output2", "Output 2", "ESERA.dimmer32");
@@ -22,7 +22,7 @@ class EseraDualDimmer extends IPSModule {
 		}
 
 
-		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
+		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1-Wire Controller
 	}
 	public function Destroy(){
 		//Never delete this line!
@@ -43,19 +43,36 @@ class EseraDualDimmer extends IPSModule {
 		$this->SendDebug("ESERA-DI8C", $data->Value, 0);
 
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
+			// Push Button Input
 			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
 				for ($i = 1; $i <= 4; $i++){
 					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
 				}
-			} else if ($data->DataPoint == 3) {
-				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 2; $i++){
-					SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x1);
-				}
+			} 
+			//Dimmer Channel 1
+			else if ($data->DataPoint == 3) {
+			
+
 			}
+			//Dimmer Channel 2
+			else if ($data->DataPoint == 4) {
+				
+			}
+			
 		}
-	}
+
+	
+	
+	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
+		    if (!IPS_VariableProfileExists($ProfileName)) {
+			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
+			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
+			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
+			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
+			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+		    }
+	  }
 
 	
 	
