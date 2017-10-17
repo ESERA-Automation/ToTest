@@ -1,5 +1,5 @@
 <?
-class EseraDigitalOutIn8Channel extends IPSModule {
+class EseraDualDimmer extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!

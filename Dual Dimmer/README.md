@@ -1,5 +1,5 @@
-# ESERA Digital Out 8 Channel
-Das Modul bindet das Digital Out 8 Channel von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA Dual Dimmer
+Das Modul bindet das Dual Dimmer von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -29,7 +29,7 @@ Das Modul bindet das Digital Out 8 Channel von ESERA-Automation ein. Es werden a
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Digital Out 8 Channel'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Dual Dimmer'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -43,7 +43,7 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 ##### Statusvariablen
 
-Es werden automatisch alle 16 Ein-/Ausgänge eingerichtet.
+Es werden automatisch alle 4 Ein- und 2 Ausgänge eingerichtet.
 
 __Unterstützte Datenpakete__
 
@@ -64,4 +64,4 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Schaltet einen Ausgang An/Aus.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
-`ESERA_SetDigitalOutput(12345, 1, 1);`  
+`ESERA_SetDualDimmerOutput(12345, 1, 1);`  
