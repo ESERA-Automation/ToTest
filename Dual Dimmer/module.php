@@ -76,9 +76,6 @@ class EseraDualDimmer extends IPSModule {
 
     }	
 	
-
-
-	
 	
 	public function SetDualDimmer(int $OutputNumber, int $Value) {
 
