@@ -32,10 +32,9 @@ class EseraStation200 extends IPSModule {
 		//Set Parent
 		switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
-				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort
-				
-				break;
-
+				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort				
+				break;			
+			
 			case 20:
 				$this->ForceParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}"); //ClientSocket
 				break;

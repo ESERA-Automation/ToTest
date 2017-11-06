@@ -4,8 +4,8 @@
 	{ "type": "Label", "label": "Connection" },
 	{ "type": "Select", "name": "ConnectionType", "caption": "Type of connection",
 		"options": [
-			{ "label": "TCP/IP", "value": 10 },
-			{ "label": "Serial", "value": 20 }
+			{ "label": "Serial", "value": 10 },
+			{ "label": "TCP/IP", "value": 20 }
 		]
 	},
 	{ "type": "Select", "name": "DataOutputType", "caption": "Type of dataoutput",
