@@ -1,5 +1,6 @@
 <?
 class EseraStation200 extends IPSModule {
+//class EseraOneWireController extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!
