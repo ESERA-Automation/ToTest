@@ -300,9 +300,9 @@ class EseraStation200 extends IPSModule {
 	public function GetConfigurationForParent() {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
-		if ($this->ReadPropertyInteger("ConnectionType") == 20) {
+		if ($this->ReadPropertyInteger("ConnectionType") == 10) {
 			return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";
-		} else if ($this->ReadPropertyInteger("ConnectionType") == 10) {
+		} else if ($this->ReadPropertyInteger("ConnectionType") == 20) {
 			return "{\"Port\": \"5000\"}";
 		} else {
 			return "";
