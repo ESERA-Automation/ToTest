@@ -9,11 +9,11 @@ class EseraStation200IO extends IPSModule {
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
         for($i = 1; $i <= 2; $i++){
-          $this->RegisterVariableBoolean("Input ".$i, "Input ".$i, "~Switch");
+          $this->RegisterVariableBoolean("Input".$i, "Input ".$i, "~Switch");
         }
 
         for($i = 1; $i <= 2; $i++){
-    			$this->RegisterVariableBoolean("Output ".$i, "Output ".$i, "~Switch");
+    			$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch");
     			$this->EnableAction("Output".$i);
     		}
 
@@ -50,7 +50,7 @@ class EseraStation200IO extends IPSModule {
           if ($data->DataPoint == 1){
             $value = intval($data->Value, 10);
             for ($i = 1; $i <= 2; $i++){
-              SetValue($this->GetIDForIdent("Input ".$i), ($value >> ($i-1)) & 0x01);
+              SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
             }
           }
         }
@@ -59,7 +59,7 @@ class EseraStation200IO extends IPSModule {
            if ($data->DataPoint == 1){
              $value = intval($data->Value, 10);
               for ($i = 1; $i <= 2; $i++){
-        	    SetValue($this->GetIDForIdent("Output ".$i), ($value >> ($i-1)) & 0x01);
+        	    SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x01);
         	 }
            }
 		}
