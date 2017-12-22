@@ -5,7 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Dual S0 Counter 32 Bit Stromzähler"
+    "Dual S0 Counter 32 Bit Stromzähler",
+	"Stromzähler Modul"
   ],
   "parentRequirements": [],
   "childRequirements": [],
