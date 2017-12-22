@@ -7,14 +7,16 @@ class EseraDualDimmer extends IPSModule {
 
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
-		$this->RegisterPropertyInteger("OWDID", 1);
-
+		
 		//Dimmer profile 0-31
         $this->CreateVariableProfile("ESERA.dimmer32", 2, " ", 0, 31, 1, 2, "Intensity");
+
+		$this->RegisterPropertyInteger("OWDID", 1);
+        $this->EnableAction("ESERA.dimmer32");
 		
 		//Output for dimmer channels
-        $this->RegisterVariableFloat("Output1", "Output 1", "ESERA.dimmer32");
-		$this->RegisterVariableFloat("Output2", "Output 2", "ESERA.dimmer32");
+        $this->RegisterVariableInteger("Output1", "Output 1", "ESERA.dimmer32");
+		$this->RegisterVariableInteger("Output2", "Output 2", "ESERA.dimmer32");
 		
 		//Input for Push Button Input (manual control)
 		for($i = 1; $i <= 4; $i++){
