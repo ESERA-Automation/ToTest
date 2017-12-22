@@ -61,7 +61,8 @@ Es werden keine zusätzlichen Profile hinzugefügt
 
 ### 7. PHP-Befehlsreferenz
 `boolean ESERA_SetDualDimOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
-Dimmt einen einen Ausgang An/Heller/Dunkler/Aus.
-Die Funktion liefert keinerlei Rückgabewert.  
+Dimmen eines Ausgang An/Heller/Dunkler/Aus.
+Die Funktion liefert keinerlei Rückgabewert.
+  
 Beispiel:  
 `ESERA_SetDualDimOutput(12345, 1, 1);`  
