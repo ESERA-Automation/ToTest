@@ -3,7 +3,7 @@
   [
     { "type": "Label", "label": "General Settings" },
     { "type": "SelectVariable", "name": "CounterID", "caption": "Counter" },
-    { "type": "Select", "name": "Impulses", "caption": "Imp kWh",
+    { "type": "Select", "name": "Impulses", "caption": "Impules / kWh",
             "options": [
                 { "label": "250", "value": 250 },
                 { "label": "500", "value": 500 },

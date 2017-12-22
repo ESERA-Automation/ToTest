@@ -64,6 +64,7 @@ class EseraDigitalOut8Channel extends IPSModule {
 
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
+		$this->Send("SET,OWD,OUTH,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
 	}
 	private function Send($Command) {
 

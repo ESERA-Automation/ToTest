@@ -51,6 +51,7 @@ class EseraBinaerAusgangDual extends IPSModule {
     public function SetDualOutput(int $OutputNumber, int $Value) {
       $OutputNumber = $OutputNumber - 1;
       $this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
+	  $this->Send("SET,OWD,OUTH,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
     }
     private function Send($Command) {
 
