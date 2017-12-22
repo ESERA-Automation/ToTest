@@ -60,33 +60,27 @@ class EseraDualDimmer extends IPSModule {
 			else if ($data->DataPoint == 4) {
 				$value = $data->Value *3.33;
                 SetValue($this->GetIDForIdent("Output2"), $value);
-			}
-			
+			}			
 		}
 	}
 	
-	//Dimmer Output
-    public function SetDualDimOutput(int $Value) {
-  		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID"). "," . $Value ."");
-  	}
     
 	private function Send($Command) {
         //Zur 1Wire Controller Instanz senden
     	return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 
     }	
-		
+	//Dimmer Output	
 	public function SetDualDimOutput(int $OutputNumber, int $Value) {
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
 	}
-	/*
+	
 	private function Send($Command) {
 		//Zur 1Wire Coontroller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
-
 	}
-	*/
+
 	
 	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
