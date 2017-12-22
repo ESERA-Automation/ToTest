@@ -62,8 +62,10 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDualOutput(integer $OutputNumber, integer $Value);`  
+`boolean ESERA_SetDualOutputPIN(integer $OutputNumber, integer $Value);`  
 Schaltet einen Ausgang ein/aus.
+`boolean ESERA_SetDigitalOutputPORT(integer $InstanzID, integer $Value);`  
+Schaltet alle Ausgäng auf einmal An/Aus.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
 `ESERA_SetDualOutput(12345, 1, 1);`  
@@ -79,4 +81,4 @@ Schaltet den Ausgang 1 aus.
 Schaltet den Ausgang 2 aus.
 
 `ESERA_SetDigitalOutputPort(integer $InstanzID, integer $Value);`  
-Schaltet alle Ausgäng auf einmal An/Aus.
+Schaltet alle beide Ausgäng auf einmal An/Aus.

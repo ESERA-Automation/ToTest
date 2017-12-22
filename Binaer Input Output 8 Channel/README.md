@@ -62,6 +62,9 @@ Es werden keine zusätzlichen Profile hinzugefügt
 ### 7. PHP-Befehlsreferenz
 `boolean ESERA_SetDigitalOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
 Schaltet einen Ausgang An/Aus.
+`boolean ESERA_SetDigitalOutputPORT(integer $InstanzID, integer $Value);`  
+Schaltet alle Ausgäng auf einmal An/Aus.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
 `ESERA_SetDigitalOutput(12345, 1, 1);`  
+`ESERA_SetDigitalOutputPort(12345,128);`  
