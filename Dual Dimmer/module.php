@@ -12,11 +12,11 @@ class EseraDualDimmer extends IPSModule {
         $this->CreateVariableProfile("ESERA.dimmer32", 2, " ", 0, 31, 1, 2, "Intensity");
 
 		$this->RegisterPropertyInteger("OWDID", 1);
-        $this->EnableAction("ESERA.dimmer32");
-		
+        		
 		//Output for dimmer channels
         $this->RegisterVariableInteger("Output1", "Output 1", "ESERA.dimmer32");
 		$this->RegisterVariableInteger("Output2", "Output 2", "ESERA.dimmer32");
+		$this->EnableAction("ESERA.dimmer32");
 		
 		//Input for Push Button Input (manual control)
 		for($i = 1; $i <= 4; $i++){
