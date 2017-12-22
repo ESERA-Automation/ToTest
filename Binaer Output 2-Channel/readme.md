@@ -75,5 +75,8 @@ Schaltet den Ausgang 2 ein.
 `ESERA_SetDualOutput(12345, 1, 0);`  
 Schaltet den Ausgang 1 aus.
 
-`ESERA_SetDualOutput(12345, 2, 1);`  
+`ESERA_SetDualOutput(12345, 2, 0);`  
 Schaltet den Ausgang 2 aus.
+
+`ESERA_SetDigitalOutputPort(integer $InstanzID, integer $Value);`  
+Schaltet alle Ausgäng auf einmal An/Aus.
