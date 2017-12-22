@@ -77,7 +77,7 @@ class EseraDualDimmer extends IPSModule {
     }	
 	
 	
-	public function SetDualDimmer(int $OutputNumber, int $Value) {
+	public function SetDualDimOutput(int $OutputNumber, int $Value) {
 
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,DIM,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");

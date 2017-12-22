@@ -60,8 +60,8 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDigitalOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
-Schaltet einen Ausgang An/Aus.
+`boolean ESERA_SetDualDimOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
+Dimmt einen einen Ausgang An/Heller/Dunkler/Aus.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
-`ESERA_SetDualDimmerOutput(12345, 1, 1);`  
+`ESERA_SetDualDimOutput(12345, 1, 1);`  
