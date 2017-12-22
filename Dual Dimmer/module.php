@@ -63,13 +63,11 @@ class EseraDualDimmer extends IPSModule {
 			}			
 		}
 	}
-	
     
-	private function Send($Command) {
-        //Zur 1Wire Controller Instanz senden
-    	return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
-
-    }	
+	public function RequestAction($Ident, $Value) {
+      $this->SetDualDimOutput(SubStr($Ident, 7, 1), $Value);
+    }
+	
 	//Dimmer Output	
 	public function SetDualDimOutput(int $OutputNumber, int $Value) {
 		$OutputNumber = $OutputNumber - 1;
