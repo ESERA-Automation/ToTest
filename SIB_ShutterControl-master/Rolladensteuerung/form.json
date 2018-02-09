@@ -1,0 +1,73 @@
+{
+  "elements":
+  [
+    { "type": "Label", "label": "General Settings" },
+    { "type": "NumberSpinner", "name": "Interval", "caption": "Check Interval (s)" },
+    { "type": "Label", "label": "Delay between the Moves" },
+    { "type": "NumberSpinner", "name": "MovementDelay", "caption": "Time (s)" },
+    { "type": "SelectInstance", "name": "ShutterID", "caption": "Shutter" },
+    { "type": "CheckBox", "name": "Emulate", "caption": "Emulate Status"},
+    { "type": "CheckBox", "name": "EmulationReset", "caption": "Reset Emulation at 00:00h"},
+    { "type": "CheckBox", "name": "ShowTrigger", "caption": "Show Trigger in String Variable"},
+    { "type": "CheckBox", "name": "deactivateManualMove", "caption": "Deactivate after manual movement"},
+    { "type": "Select", "name": "NormalState", "caption": "Normal State",
+            "options": [
+                { "label": "Up", "value": 1 },
+                { "label": "Down", "value": 2 }
+        ]},
+    { "type": "Label", "label": "Priority: SleepMode - Door - Wind - Rain - State - Sun - External Brightness Trigger - Brightness" },
+    { "type": "Label", "label": "External State Trigger (TRUE = on / FALSE = OFF)" },
+    { "type": "CheckBox", "name": "ExternalStateTrigger", "caption": "External Trigger"},
+    { "type": "SelectVariable", "name": "ExternalStateTriggerID", "caption": "External Trigger" },
+    { "type": "Label", "label": "Time based automatic movements" },
+    { "type": "CheckBox", "name": "ScheduledMovement", "caption": "Scheduled Movement"},
+    { "type": "Label", "label": "Door Detection" },
+    { "type": "CheckBox", "name": "DoorDetection", "caption": "Door Detection" },
+    { "type": "SelectVariable", "name": "DoorID", "caption": "Door" },
+    { "type": "CheckBox", "name": "deactivateDoor", "caption": "Deactivate after door opening"},
+    { "type": "Label", "label": "Wind Detection" },    
+    { "type": "CheckBox", "name": "WindDetection", "caption": "Wind Detection" },
+    { "type": "SelectVariable", "name": "WindID", "caption": "Wind" },
+    { "type": "Select", "name": "WindAction", "caption": "Action at Wind",
+            "options": [
+                { "label": "Move Up", "value": 1 },
+                { "label": "Move Down", "value": 2 }
+        ]},
+    { "type": "CheckBox", "name": "WindAtOff", "caption": "Detect at Off"},        
+    { "type": "Label", "label": "Rain Detection" },    
+    { "type": "CheckBox", "name": "RainDetection", "caption": "Rain Detection" },
+    { "type": "SelectVariable", "name": "RainID", "caption": "Rain" },
+    { "type": "Select", "name": "RainAction", "caption": "Action at Rain",
+            "options": [
+                { "label": "Move Up", "value": 1 },
+                { "label": "Move Down", "value": 2 }
+        ]},
+    { "type": "CheckBox", "name": "RainAtOff", "caption": "Detect at Off"},
+    { "type": "Label", "label": "Sun Azimuth" },   
+    { "type": "CheckBox", "name": "SunAzimuthDetection", "caption": "Sun Azimuth Detection" },
+    { "type": "SelectVariable", "name": "SunAzimuthID", "caption": "Sun Azimuth" },
+    { "type": "NumberSpinner", "name": "SunAzimuthDown", "caption": "Sun Down"},
+    { "type": "NumberSpinner", "name": "SunAzimuthUp", "caption": "Sun Up"},
+    { "type": "Label", "label": "External Brightness Trigger" },   
+    { "type": "CheckBox", "name": "ExternalBrightnessDetection", "caption": "External Brightness Detection" },
+    { "type": "Select", "name": "ExternalBrightnessTriggerDirection", "caption": "Trigger Direction",
+            "options": [
+                { "label": "TRUE = down / FALSE = up", "value": 1 },
+                { "label": "TRUE = up / FALSE = down", "value": 2 }
+        ]},
+    { "type": "SelectVariable", "name": "ExternalBrightnessTriggerID", "caption": "Brightness Trigger" },
+    { "type": "Label", "label": "Brightness Detection" },   
+    { "type": "CheckBox", "name": "BrightnessDetection", "caption": "Brightness Detection" },
+    { "type": "SelectVariable", "name": "BrightnessID", "caption": "Brightness" },
+    { "type": "NumberSpinner", "name": "BrightnessThreshold", "caption": "Brightness Delay (s)"},
+    { "type": "Select", "name": "DirectionExceedThreshold", "caption": "Exceed Threshold",
+            "options": [
+                { "label": "Up", "value": 1 },
+                { "label": "Down", "value": 2 }
+        ]},
+    { "type": "Label", "label": "Use the following option only for debugging purposes:" },   
+    { "type": "Label", "label": "(triggers immediately on Brightness change)" },
+    { "type": "Label", "label": "(only available for Brightness Detection)" },
+    { "type": "CheckBox", "name": "ImmediatelyBrightnessDetection", "caption": "Trigger immediately" }
+  ]
+}
