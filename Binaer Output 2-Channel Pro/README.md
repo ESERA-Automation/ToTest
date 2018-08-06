@@ -1,5 +1,5 @@
-# ESERA Dual Dimmer
-Das Modul bindet das Dual Dimmer von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA Digital Out 2 Channel
+Das Modul bindet das Dual Digital Out Pro von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -20,7 +20,7 @@ Das Modul bindet das Dual Dimmer von ESERA-Automation ein. Es werden automatisch
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.x
+- IP-Symcon ab Version 4.2
 
 ### 3. Software-Installation
 
@@ -29,7 +29,7 @@ Das Modul bindet das Dual Dimmer von ESERA-Automation ein. Es werden automatisch
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Dual Dimmer'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Dual Digital Out Pro'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -43,7 +43,7 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 ##### Statusvariablen
 
-Es werden automatisch alle 4 Ein- und 2 Ausgänge eingerichtet.
+Es werden automatisch alle 4 Ein-/Ausgänge eingerichtet.
 
 __Unterstützte Datenpakete__
 
@@ -60,9 +60,14 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDualDimOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
-Dimmen eines Ausgang An/Heller/Dunkler/Aus.
-Die Funktion liefert keinerlei Rückgabewert.
-  
+`boolean ESERA_SetDigitalOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
+Schaltet einen Ausgang An/Aus.
+Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
-`ESERA_SetDualDimOutput(12345, 1, 1);`  
+`ESERA_SetDigitalOutput(12345, 1, 1);`
+
+`boolean ESERA_SetDigitalOutputPort(integer $InstanzID, integer $Value);`  
+Schaltet alle Ausgänge mit einem Befehl An/Aus.
+Die Funktion liefert keinerlei Rückgabewert.  
+Beispiel:  
+`ESERA_SetDigitalOutputH(12345, 1);`  

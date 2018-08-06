@@ -1,5 +1,5 @@
 <?
-class EseraDigitalOut8Channel extends IPSModule {
+class EseraDigitalOutIn2Channel extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!
@@ -8,9 +8,13 @@ class EseraDigitalOut8Channel extends IPSModule {
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
 		$this->RegisterPropertyInteger("OWDID", 1);
+		
+		for($i = 1; $i <= 2; $i++){
+			$this->RegisterVariableBoolean("Input".$i, "Input ".$i, "~Switch",1);
+		}
 
-		for($i = 1; $i <= 8; $i++){
-			$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch");
+		for($i = 1; $i <= 2; $i++){
+			$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch",1);
 			$this->EnableAction("Output".$i);
 		}
 
@@ -27,45 +31,44 @@ class EseraDigitalOut8Channel extends IPSModule {
 
 		//Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
-	}
 
+	}
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA Binaer 8-Channel Output", $data->Value, 0);
+		$this->SendDebug("ESERA-DualDoutDI", $data->Value, 0);
 
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
-			if ($data->DataPoint == 3) {
+			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 8; $i++){
+				for ($i = 1; $i <= 2; $i++){
+					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
+				}
+			} else if ($data->DataPoint == 3) {
+				$value = intval($data->Value, 10);
+				for ($i = 1; $i <= 2; $i++){
 					SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x1);
 				}
 			}
 		}
 	}
-
+	
 	public function RequestAction($Ident, $Value) {
 		switch($Ident) {
 			case "Output1":
 			case "Output2":
-			case "Output3":
-			case "Output4":
-			case "Output5":
-			case "Output6":
-			case "Output7":
-			case "Output8":
 				$this->SetDigitalOutput(SubStr($Ident, 6, 1), $Value);
 				break;
 			default:
 				throw new Exception("Invalid ident");
 		}
 	}
-	
 	public function SetDigitalOutput(int $OutputNumber, int $Value) {
+
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
 	}
-	
+
 	public function SetDigitalOutputPort(int $Value) {
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,OUTH,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");

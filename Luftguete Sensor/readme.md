@@ -1,5 +1,5 @@
-# ESERA Binärausgang Dual
-Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA Luftgüte Sensor (Art. Nr. 11161)
+Das Modul bindet den Luftgüte Sensor von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -13,7 +13,7 @@ Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden auto
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Binärausgang Dual her.
+* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway /Station Verbindung zum Luftgüte Sensor her.
 * OWDID einstellbar
 * Automatische Aktualisierung der Werte
 
@@ -29,7 +29,7 @@ Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden auto
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Binaer Eingang Dual'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Luftgüte'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -44,8 +44,10 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 ##### Statusvariablen
 
 Es werden automatisch alle übermittelten Werte angelegt.
-- Ausgang 1
-- Ausgang 2
+- Temperatur (immer 0C°)
+- Spannung
+- Luftgüte
+
 
 __Unterstützte Datenpakete__
 
@@ -55,25 +57,11 @@ OWD       | Integer
 
 ##### Profile:
 
-Es werden keine zusätzlichen Profile hinzugefügt
+Es werden die Variablenprofile "ESERA.Luftgueüte" und "ESERA.SpannungV"  hinzugefügt.
 
 ### 6. WebFront
 
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDualOutput(integer $OutputNumber, integer $Value);`  
-Schaltet einen Ausgang ein/aus.
-Die Funktion liefert keinerlei Rückgabewert.  
-Beispiel:  
-`ESERA_SetDualOutput(12345, 1, 1);`  
-Schaltet den Ausgang 1 ein.
-
-`ESERA_SetDualOutput(12345, 2, 1);`  
-Schaltet den Ausgang 2 ein.
-
-`ESERA_SetDualOutput(12345, 1, 0);`  
-Schaltet den Ausgang 1 aus.
-
-`ESERA_SetDualOutput(12345, 2, 1);`  
-Schaltet den Ausgang 2 aus.
+Es gibt keine Befehle.

@@ -1,11 +1,12 @@
 {
-  "id": "{866D7D88-BC80-476C-A0BE-70DD83F00B17}",
-  "name": "EseraShutter1Fach",
+  "id": "{42C998B8-FB44-44C6-8869-E6B3BBCE7500}",
+  "name": "EseraLuftguete",
   "type": 3,
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "11209 Shutter 1-Channel"
+    "Air-Quality Sensor",
+    "11161 Pro Air Quality Sensor In Wall"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

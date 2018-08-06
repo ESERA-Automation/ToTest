@@ -26,7 +26,7 @@ class EseraBinaerAusgangDual extends IPSModule {
         parent::ApplyChanges();
 
         //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
     }
     public function ReceiveData($JSONString) {
@@ -51,8 +51,7 @@ class EseraBinaerAusgangDual extends IPSModule {
     public function SetDualOutput(int $OutputNumber, int $Value) {
       $OutputNumber = $OutputNumber - 1;
       $this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
-	}
-
+    }
     private function Send($Command) {
 
       //Zur 1Wire Controller Instanz senden

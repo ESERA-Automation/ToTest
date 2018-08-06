@@ -7,7 +7,7 @@
 	{ "type": "Label", "label": "" },	
 	{ "type": "Label", "label": "Support Videos finden Sie auf der Webseite von ESERA-Automation unter https://www.esera.de/service-support/support-videos/ " },
 	
-	{ "type": "Label", "label": "Eine Beschreibung zu dem Softwaremodul finden Sie unter https://github.com/ESERA-Automation/IPS-Module/tree/master/Temperatur-Feuchte-Luftguete%20Sensor" },
+	{ "type": "Label", "label": "Eine Beschreibung zu dem Softwaremodul finden Sie unter https://github.com/ESERA-Automation/IPS-Module/tree/master/Luftguete%20Sensor" },
 
 	{ "type": "Label", "label": "Weitergehende Informationen zu dem Produkt finden Sie auf www.esera.de/produkte" }
 

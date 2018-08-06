@@ -1,12 +1,11 @@
 {
-	"id": "{C80A5A59-E51F-4EA8-B437-1A50D717A85D}",
-	"name": "EseraDualDimmer",
+	"id": "{B5671806-D45D-4974-BC2D-5B8DB80BD603}",
+	"name": "EseraShutterPro",
 	"type": 3,
 	"vendor": "ESERA-Automation",
-	"aliases": 
+	"aliases":
 	[
-		"Dual Dimmer",
-		"11225 Dual Dimmer Phasenanschnitt"	
+		"11231 Shutter Pro"
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],

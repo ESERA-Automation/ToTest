@@ -1,5 +1,5 @@
-# ESERA Binärausgang Dual
-Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA Shutter Pro 1-Fach
+Das Modul bindet das Shutter Pro 1-Fach von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -13,14 +13,15 @@ Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden auto
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Binärausgang Dual her.
+* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station Verbindung zum Shutter Pro 1-Fach her.
 * OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Automatische Aktualisierung der Werte für Output- und Input Status
 
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station 200 ab Firmware 1.18_72
+
 
 ### 3. Software-Installation
 
@@ -29,7 +30,7 @@ Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden auto
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Binaer Eingang Dual'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das Shutter Modul 1-Fach'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -43,9 +44,11 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
-- Ausgang 1
-- Ausgang 2
+Es werden automatisch alle übermittelten Werte für Output- und Input Status angelegt.
+- Down
+- Up
+- Stop
+- Standby
 
 __Unterstützte Datenpakete__
 
@@ -55,25 +58,22 @@ OWD       | Integer
 
 ##### Profile:
 
-Es werden keine zusätzlichen Profile hinzugefügt
+Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 ### 6. WebFront
 
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDualOutput(integer $OutputNumber, integer $Value);`  
-Schaltet einen Ausgang ein/aus.
+`boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
+Fährt einen Rollladen hoch/runter oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
-`ESERA_SetDualOutput(12345, 1, 1);`  
-Schaltet den Ausgang 1 ein.
+`ESERA_SetShutter(12345,1,1);`  
+Fährt den Rolladen runter.
 
-`ESERA_SetDualOutput(12345, 2, 1);`  
-Schaltet den Ausgang 2 ein.
+`ESERA_SetShutter(12345,1,2);`  
+Fährt den Rolladen hoch.
 
-`ESERA_SetDualOutput(12345, 1, 0);`  
-Schaltet den Ausgang 1 aus.
-
-`ESERA_SetDualOutput(12345, 2, 1);`  
-Schaltet den Ausgang 2 aus.
+`ESERA_SetShutter(12345,1,3);`  
+Stoppt den Rolladen.
