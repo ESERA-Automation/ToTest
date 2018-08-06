@@ -57,6 +57,7 @@ class EseraWindmesser extends IPSModule {
     }
 
     private function Calculate(){
+<<<<<<< HEAD
 		//Windspeed-Berechnung
 		//$CounterOld = GetValue(Counter_alt);
 		$CounterOld = GetValue($this->ReadPropertyInteger("Counter_alt"));
@@ -64,10 +65,17 @@ class EseraWindmesser extends IPSModule {
         
 		if ($CounterNew > $CounterOld)
 		{
+=======
+		//Windspeed berechnung
+		$CounterOld = GetValue($this->GetIDForIdent("Counter"));
+        $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
+        if ($CounterNew > $CounterOld){
+>>>>>>> origin/master
 			$delta = $CounterNew - $CounterOld;
 			$Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
 			$delta_Wind = ((($delta / $Factor) * 3600) / 1000);
 			$delta_Wind_ms = $delta / $Factor;
+<<<<<<< HEAD
 			
 		}
 		else
@@ -80,6 +88,14 @@ class EseraWindmesser extends IPSModule {
 		
 		SetValue($this->GetIDForIdent("Counter_alt"), $CounterNew);
 		SetValue($this->GetIDForIdent("Counter_delta"), $delta);      
+=======
+		}
+		else{
+			SetValue($this->GetIDForIdent("Counter"), $CounterNew);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
+		}
+		//$this->SetBuffer("counter", $CounterNew);
+        SetValue($this->GetIDForIdent("Counter"), $CounterNew);
+>>>>>>> origin/master
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
@@ -104,25 +120,42 @@ class EseraWindmesser extends IPSModule {
 		$windspeedslow = $windspeedslow / 5;										//Mittelwert berechnen
 		
 		$interncount = $interncount +1;												//Zähler für Mittelwertausgabe
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/master
 		if ($interncount >= 5 ){													//Datenausgabe Mittelwert nach 5 neuen Werten
 			$interncount = 5;
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	    //Mittelwert ausgebe in Variable	
 		}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/master
 		$this->SetBuffer("interncount", $interncount);
 		$this->SetBuffer("intern1", $intern_0);
 		$this->SetBuffer("intern2", $intern_1);
 		$this->SetBuffer("intern3", $intern_2);			
 		$this->SetBuffer("intern4", $intern_3);
+<<<<<<< HEAD
 		
         // Only for debugging
         $this->DebugMessage("Counter", "Counter_Alt: " . $CounterOld);
+=======
+
+		
+        // Only for debugging
+        $this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
+>>>>>>> origin/master
         $this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
         $this->DebugMessage("Counter", "Delta: " . $delta);
         $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
         $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
 		$this->DebugMessage("Counter", "interncount: " . $interncount);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     }
 	
 	public function CallFloat(float $Value) {
